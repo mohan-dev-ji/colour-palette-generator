@@ -9,7 +9,6 @@ The Color Analysis App is a Flask web application that allows users to upload an
 - Analyze the colors in the uploaded image
 - Show the top 10 most common colors with their hex codes
 - Display color swatches for a visual representation
-- Download the color palette as a CSV file
 
 ## Prerequisites
 
@@ -54,7 +53,6 @@ python app.py
 
 4. After uploading the image, the application will display the uploaded image and the top 10 most common colors with their hex codes.
 
-5. You can download the color palette as a CSV file by clicking the "Download Palette" button.
 
 ## Configuration
 
