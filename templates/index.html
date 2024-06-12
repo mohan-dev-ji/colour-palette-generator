@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colour Palette Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form method="post" enctype="multipart/form-data" class="my-4" action="{{  url_for('upload_image')  }}">
+                    <div class="form-group">
+                        <label for="image">Upload Image</label>
+                        <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </form>
+                <div id="uploaded-image" class="my-4">
+                    {% if uploaded_image %}
+                    <img src="{{ url_for('static', filename='uploads/' + uploaded_image) }}" alt="Uploaded Image" class="img-fluid">
+                    {% endif %}
+                </div>
+                <div id="color-results" class="my-4">
+                    {% if hex_colors %}
+                    <h3>Top 10 Colors</h3>
+                    <div class="row">
+                        {% for color, count in hex_colors %}
+                        <div class="col-md-3 mb-3">
+                            <div class="color-swatch" style="background-color: {{ color }}; height: 100px;"></div>
+                            <p>{{ color }} ({{ count }})</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
